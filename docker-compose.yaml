@@ -1,0 +1,13 @@
+version: "3"
+services:
+    tdk_aws_integration:
+        image: tdk_aws_integration:1.0.0
+        command: ros2 launch tdk_robokit_cloud sensors_launch.py
+        network_mode: host
+        privileged: true
+        volumes:
+            - /dev/:/dev/
+            - /etc/localtime/:/etc/localtime:ro
+        stdin_open: true
+        tty: true
+        restart: always
